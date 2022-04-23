@@ -1,18 +1,20 @@
 <h1 class="mt-5">Agregar productos</h1>
 <hr>
 
-<form>
+<form [formGroup]="miFormulario">
   <div class="row g-3 align-items-center mb-3">
     <div class="col-auto">
       <label class="col-form-label">Nombre</label>
     </div>
 
     <div class="col-auto">
-      <input class="form-control">
+      <input class="form-control"
+             formControlName="nombre">
     </div>
 
     <div class="col-auto">
-      <span class="form-text">
+      <span class="form-text"
+      *ngIf="tieneError('nombre')">
         Este campo es requerido
       </span>
     </div>
@@ -32,3 +34,5 @@
 </form>
 
 <h3 class="mt-5">Formulario</h3>
+<pre>Valid: {{ miFormulario.valid }}</pre>
+<pre>Valid: {{ miFormulario.value | json }}</pre>
